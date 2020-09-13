@@ -1,0 +1,1036 @@
+
+
+<script type="text/javascript">
+
+    var _logoutText = 'Kirjaudu ulos';
+    var _textMainTitle = 'Tilaa uusi palvelu tai tee muutoksia';
+    var _textHelp = 'Ohje';
+    var _textFeedback = 'Palaute';
+    var _textTab1 = 'Aloitustiedot <br/> &nbsp';
+    var _textTab2 = 'Palvelut <br/> &nbsp;';
+    var _textTab3 = 'Viemärijäte <br/> tyhjennys';
+    var _textTab4 = 'Perustiedot<br/>&nbsp;';
+    var _textTab5 = 'Laskutustiedot<br/>&nbsp;';
+    var _textTab6 = 'Kompostointi <br/> &nbsp';
+    var _textTab7 = 'Yhteenveto/Lähetä<br/>&nbsp;';
+    var _textPopupErrorCaption = 'Virheilmoitus';
+    var _textPopupErrorMessage1 = 'Sähköisen lomakkeen käsittelyssä tapahtui virhe, pahoittelemme ongelmaa. Yritä myöhemmin uudestaan.';
+    var _textPopupErrorMessage2 = 'Virhetilanne on kirjattu lokiin ja ilmoitus lähetetty sähköpostilla sovelluksen ylläpitäjälle.';
+    var _textOk = 'Ok';
+    var _textEnd = 'Lopeta';
+    var _textYes = 'Kyllä';
+    var _textNo = 'Ei';
+    var _textNewBid = 'Tee uusi tarjouspyyntö';
+    var _textResetCaption = 'Kirjaudu ulos';
+    var _textResetText = 'Toiminto tyhjentää kaikki syöttämäsi tiedot. Haluatko jatkaa?';
+    var _textResetAndRollbackCaption = 'Tietojen syötön uudelleen aloitus';
+    var _textResetAndRollbackText = 'Toiminto tyhjentää kaikki syöttämäsi tiedot ja lisäksi HSY:llä kesken olevan muutoksen. Haluatko jatkaa?';
+    var _textAstiaDeleteCaption = 'Astiarivin poisto';
+    var _textAstiaDeleteText = 'Oletko varma että haluat poistaa kyseisen astiarivin?';
+    var _textSaveOkCaption = 'Jätepalvelun muutosten tallennus onnistui';
+    var _textSaveOkText = 'Kiitos jätepalvelun muutoksen tilauksesta. Otamme tilauksen käsittelyyn mahdollisimman pian. Noudot voivat tulla voimaan aikaisintaan kahden arkipäivän päästä. Yhteyshenkilömuutokset tulevat voimaan heti.';
+    var _textSaveOkImmediateCaption = 'Jätepalvelun muutosten tallennus onnistui';
+    var _textSaveOkImmediateText = 'Kiitos jätepalvelun muutoksen tilauksesta. Otamme tilauksen käsittelyyn mahdollisimman pian. Noudot voivat tulla voimaan aikaisintaan kahden arkipäivän päästä. Yhteyshenkilömuutokset tulevat voimaan heti.';
+	var _textSaveNewOrderNoExtraOkCaption = 'Tilauksen lähetys onnistui';
+	var _textSaveNewOrderNoExtraOkText = 'Kiitos jätepalvelun tilauksesta. Otamme tilauksen käsittelyyn mahdollisimman pian. Noudot voivat tulla voimaan aikaisintaan kahden arkipäivän päästä.';
+	var _textSaveNewOrderWithExtraOkCaption = 'Tilauksen lähetys onnistui';
+	var _textSaveNewOrderWithExtraOkText = 'Kiitos jätepalvelun ja tyhjennyksen tilauksesta. Otamme tilauksen käsittelyyn mahdollisimman pian. Noudot voivat tulla voimaan aikaisintaan kahden arkipäivän päästä ja kaivon tyhjennys suoritetaan n 7 arkipäivän sisällä.';
+    var _textPrintPdf = 'Näytä yhteenveto (pdf)';
+    var _textCopyRight = '© Helsingin seudun ympäristöpalvelut';
+    var _textPopupExpirationCaption = 'Istuntosi on vanhentunut';
+    var _textPopupExpirationMessage1 = 'Mikäli haluat tehdä muutoksen jätepalveluun, ole hyvä ja aloita alusta.';
+    var _textPopupExpirationMessage2 = '';
+    var _textAloitaAlusta = 'Aloita alusta/poistu';
+    var _textPopupLoggedOutFromSuomiFiCaption = 'Olet kirjauttunut ulos Suomi.fi:n kautta';
+    var _textPopupLoggedOutFromSuomiFiMessage1 = 'Mikäli haluat tehdä muutoksen jätepalveluun, ole hyvä ja aloita alusta.';
+    var _textPopupLoggedOutFromSuomiFiMessage2 = '';
+    var _textLoggedOutFromSuomiFiAloitaAlusta = 'Aloita alusta/poistu';
+    var _textPopupChangeErrorCaption = 'Muutosvirheilmoitus';
+    var _textPopupChangeErrorMessage1 = 'Muutosten tallennus ei onnistunut, sillä aiemmin tehdyt muutokset ovat jo käsittelyssä HSY:n jätehuollossa.Yritä myöhemmin uudestaan';
+    var _textPopupChangeErrorMessage2 = '';
+    var _textJatepisteResetCaption = 'Sijaintipaikkamuutosten peruutus';
+    var _textJatepisteResetText = 'Peruuta-toiminto peruuttaa tekemäsi muutokset ja palauttaa sijaintipaikka- ja astiatiedot lähtötilanteeseen. Haluatko jatkaa?';
+    var _textOmistajanvaihtoCaption = 'Omistajanvaihdoksen varmistus';
+    var _textOmistajanvaihtoText = 'Olet muuttamassa jätepalvelun tärkeitä tietoja. Maksajan nimeä ei saa muuttaa kuin siinä tapauksessa, että kyseessä on nimen korjaus esim. kirjoitusvirheen tai sukunimen vaihtumisen vuoksi. Onko kyseessä omistajan vaihtuminen tai jätepalvelun avaaminen uuteen osoitteeseen?';
+    var _textYhteystietoResetCaption = 'Yhteystieto- ja yhteyshenkilömuutosten peruutus';
+    var _textYhteystietoResetText = 'Peruuta-toiminto peruuttaa tekemäsi muutokset ja palauttaa yhteys- ja yhteyshenkilötiedot lähtötilanteeseen. Haluatko jatkaa?';
+    var _textPerustietoResetCaption = 'Perustietomuutosten peruutus';
+    var _textPerustietoResetText = 'Peruuta-toiminto peruuttaa tekemäsi muutokset ja palauttaa perustiedot lähtötilanteeseen. Haluatko jatkaa?';
+
+    var _dialogIncludeLajiYhteissopimukseenCaption = 'Otetaanko jätelaji mukaan yhteissopimukseen';
+    var _dialogIncludeLajiYhteissopimukseenText = 'Haluatko ottaa jätelaji mukaan yhteissopimukseen?';
+    
+    var _textSaveOkCaptionAndExtra = 'Jätepalvelun muutosten ja tilauksen tallennus onnistui';
+    var _textSaveOkTextAndExtra = 'Kiitos jätepalvelun muutoksen ja tyhjennyksen tilauksesta. Otamme tilauksen käsittelyyn mahdollisimman pian. Noudot voivat tulla voimaan aikaisintaan kahden arkipäivän päästä ja kaivon tyhjennys suoritetaan n 7 arkipäivän sisällä. Yhteyshenkilömuutokset tulevat voimaan heti.';
+    var _textSaveOkCaptionOnlyExtra = 'Tyhjennyksen tilaus onnistui';
+    var _textSaveOkTextOnlyExtra = 'Kiitos tyhjennyksen tilauksesta sähköisesti. Otamme tilauksen käsittelyyn mahdollisimman pian. Tyhjennys suoritetaan n 7 arkipäivän sisällä tilauksesta.';
+    var amtOpenJp = 0;
+
+    // activates given tab and deactivates all other
+    // usage: activateTabExclusive($("#L2"));
+    function activateTab(tabnr)
+    {
+        var activeTab = $('#L' + tabnr);
+        var activeDiv = $('#contents-' + tabnr);
+        //alert('checking against li ' + activeTab.attr('id') + ' and div ' + activeDiv.attr('id'));
+        $("#ul-contents").children('li').each
+            (
+                function () {
+                    //alert('checking li ' + $(this).attr('id'));
+                    if ($(this).attr('id') == activeTab.attr('id')) {
+                        $(this).removeClass("ui-state-default").addClass("ui-tabs-selected ui-state-active");
+                    }
+                    else {
+                        $(this).removeClass("ui-tabs-selected ui-state-active").addClass("ui-state-default");
+                    }
+                }
+            )
+        $("#contentsDiv").children('div').each
+            (
+                function () {
+                    //alert('checking div ' + $(this).attr('id'));
+                    if ($(this).attr('id') == activeDiv.attr('id')) {
+                        $(this).removeClass("ui-tabs-hide");
+                    }
+                    else {
+                        $(this).removeClass("ui-tabs-hide").addClass("ui-tabs-hide"); // remove it anyway, just to be sure it does not appear twice
+                    }
+                }
+            )
+    }
+
+    $(document).ready(function() {
+
+        //alert('in JatepisteContent.ascx');
+
+        displayPageNav("pageLinksGoHere_2", 2, false);
+        $("#pageLinks>div:eq(1)>a>span").attr("innerHTML", "Aloitustiedot <br/> &nbsp");
+        $("#pageLinks>div:eq(2)>a>span").attr("innerHTML", "Palvelut <br/> &nbsp;");
+        $("#pageLinks>div:eq(3)>a>span").attr("innerHTML", "Viemärijäte <br/> tyhjennys");
+        $("#pageLinks>div:eq(4)>a>span").attr("innerHTML", "Perustiedot<br/>&nbsp;");
+        $("#pageLinks>div:eq(5)>a>span").attr("innerHTML", "Laskutustiedot<br/>&nbsp;");
+        $("#pageLinks>div:eq(6)>a>span").attr("innerHTML", "Kompostointi <br/> &nbsp");
+        $("#pageLinks>div:eq(7)>a>span").attr("innerHTML", "Yhteenveto/Lähetä<br/>&nbsp;");
+        //if ($("#pageLinks").length) {
+        //    //alert("removing element");
+        //    $("#pageLinks").remove();
+        //}
+        //var pageLinks = $("#pageLinksTemp").clone();
+        //pageLinks.attr("id", "pageLinks");
+        //pageLinks.prependTo($("#pageLinksGoHere_2"));
+        ////change the image for the third div inside pageLinks
+        //$("#pageLinks>div:eq(2)>img").attr("src", "/Content/images/selected_node_and_dotline.png")
+        //pageLinks.show();
+
+        $("#L0").hide(); $("#PL0").hide();
+        $("#pageLinks>div:eq(0)").hide();
+         $("#L1").hide(); $("#PL1").hide(); 
+        $("#L2").show(); $("#PL2").show();
+        $("#L3").hide(); $("#PL3").hide(); // pois kokonaan
+        $("#L4").show(); $("#PL4").show();
+        $("#L5").show(); $("#PL5").show();
+        $("#PL6").hide();
+        
+        $("#L7").show(); $("#PL7").show();
+
+        //hideOrShowPageLinks("_2");
+
+        //alert("activating tab 2 manually");
+        activateTab('2');
+
+        initPageCaptions();
+
+        var skipOnChangeEvents = false;
+        $(".SAHKOJATELAJI").change(function (event) {
+            setComboBoxesAfterRisuChosen(event.target);
+            
+            //if (event.target.value == '0840') {
+            //    skipOnChangeEvents = true;
+            //    var name = event.target.name;
+            //    var jpIndex = event.target.name.substring(event.target.name.length - 2, event.target.name.length - 1);
+            //    var astiaIndex = event.target.name.substring(event.target.name.length - 1);
+            //    //alert('jatelaji combo ' + name + ' changed to ' + event.target.value + ' jp: ' + jpIndex + ', a: ' + astiaIndex);
+            //    var astiaDropdown = $('#SAHKOJLASTIA' + jpIndex + astiaIndex);
+            //    var omistusDropdown = $('#SAHKOJLASTOM' + jpIndex + astiaIndex);
+            //    var tiheysDropdown = $('#SAHKOJLASTOMTIH' + jpIndex + astiaIndex);
+
+            //    astiaDropdown.append($('<option></option>').val('92').html('just added'));
+            //    astiaDropdown.val('92').change();
+            //    omistusDropdown.append($('<option></option>').val('139').html('javascript added omistaja'));
+            //    omistusDropdown.val('139').change();
+            //    tiheysDropdown.append($('<option></option>').val('766').html('javascript added tiheys'));
+            //    tiheysDropdown.val('766').change();
+            //}
+
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJATELAJI_ERROR").change(function () {
+            setComboBoxesAfterRisuChosen(event.target);
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJLASTIA").change(function () {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping astia onchange event');
+                return;
+            }
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJLASTIA_ERROR").change(function() {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping astia onchange event');
+                return;
+            }
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".ASTIAKOKO").change(function() {
+            //alert('astiakoko');
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".ASTIAKOKO_ERROR").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".ASTIALAJI").change(function () {
+            if (skipOnChangeEvents)
+            {
+                //alert('skipOnChangeEvents set to true, skipping astia onchange event');
+                return;
+            }
+            //alert('astialaji changed');
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".ASTIALAJI_ERROR").change(function() {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping astia onchange event');
+                return;
+            }
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJLASTOM").change(function() {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping omistus onchange event');
+                return;
+            }
+            //alert('omistus changed');
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJLASTOM_ERROR").change(function() {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping omistus onchange event');
+                return;
+            }
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJLASTOMTIH").change(function() {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping tiheys onchange event');
+                return;
+            }
+            //alert('tiheys changed');
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SAHKOJLASTOMTIH_ERROR").change(function() {
+            if (skipOnChangeEvents) {
+                //alert('skipOnChangeEvents set to true, skipping tiheys onchange event');
+                return;
+            }
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".ASTIALKM").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".ASTIALKM_ERROR").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SiirtomatkaKoodi").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".SiirtomatkaKoodi_ERROR").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".LukitusKoodi").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".LukitusKoodi_ERROR").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".TYHJENNYSTYYPPI").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".TYHJENNYSTYYPPI_ERROR").change(function() {
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        $(".EXTRATYHJENNYS").change(function () {
+            //alert("EXTRATYHJENNYS changed");
+        });
+        $(".EXTRATYHJENNYS_ERROR").change(function () {
+            //alert("EXTRATYHJENNYS_ERROR changed");
+        });
+        $(".EXTRATYHJENNETAAN").change(function () {
+            //alert("EXTRATYHJENNETAAN changed");
+        });
+        $(".tyhjennyspvm").change(function (event) {
+            //alert("tyhjennyspvm toggle -> posting sivu (checked: " + event.target.checked + ")");
+            getContent(2, "JatepisteContent", _currentLanguageCode);
+        });
+        
+        $(".datetimefield").change(function (event) {
+            var updateSeuraavaTyhjennys = false;
+            var datevalue = event.target.value;
+            // jos kentän nimi alkaa "TILAUSTYHJENNYSPVM":lla tai "EXTRATYHJENNYS":lla, päivitä muutkin pmv:it
+            if (beginsWith(event.target.name, "TILAUSTYHJENNYSPVM"))
+            {
+                //alert(event.target.name + " beginsWith TILAUSTYHJENNYSPVM");
+            }
+            else if (beginsWith(event.target.name, "EXTRATYHJENNYS"))
+            {
+                //alert(event.target.name + " beginsWith EXTRATYHJENNYS");
+                //updateSeuraavaTyhjennys = lasketaankoTyhjennysPvmAlkaen(datevalue);
+                ensureNextEmptyingDatesUpdated(datevalue);
+                //alert('after invocation of ensureNextEmptyingDatesUpdated, continuing...');
+            }
+            else if (beginsWith(event.target.name, "JatepisteAlkamisPvm"))
+            {
+                // päivitä kaikkien ei-lietteen jätepisteiden alkamispvm
+                //alert(event.target.name + " beginsWith JatepisteAlkamisPvm");
+                
+                        //alert("ei lietettä -> setting date value");
+                        setDateValue('JatepisteAlkamisPvm' + 1, datevalue);
+                
+                return;
+            }
+            else 
+            {
+                //alert(event.target.name + " beginsWith neither TILAUSTYHJENNYSPVM nor EXTRATYHJENNYS");
+                return;
+            }
+            var datevalue = event.target.value;
+            var astiaIndex = parseInt(event.target.name.substring(event.target.name.length - 1, event.target.name.length), 10);
+            var jpNumber = parseInt(event.target.name.substring(event.target.name.length - 2, event.target.name.length - 1), 10);
+            //alert("datetimefield changed by entering a date for " + event.target.name + "; jp is " + jpNumber + " and astia index is " + astiaIndex + " (date is " + datevalue + ")");
+
+            //loopaa jätepisteet ja astiat, ja laita pvm arvo jokaiseen TILAUSTYHJENNYSPVM ja EXTRATYHJENNYS kenttään (jos on olemassa)
+            //alert('updateSeuraavaTyhjennys is ' + updateSeuraavaTyhjennys);
+            
+                    setDateValue('TILAUSTYHJENNYSPVM' + 1 + 0, datevalue);
+                    setDateValue('EXTRATYHJENNYS' + 1 + 0, datevalue);
+
+                    setDateValue('TILAUSTYHJENNYSPVM' + 1 + 1, datevalue);
+                    setDateValue('EXTRATYHJENNYS' + 1 + 1, datevalue);
+
+        });
+ 
+        $('.ClueTip').cluetip({
+            splitTitle: '|',
+            showTitle: true,
+            positionBy: 'bottomTop',
+            //fx: { open: 'slideDown', openSpeed: '1' },
+            topOffset: 30
+            //sticky: true,
+            //closeText: 'X',
+            //closePosition: 'title'
+        });
+
+        //if jatelaji changed to risunkeräys ("0840"), set corresponding SAHKOJLASTIA to "92", SAHKOJLASTOM to "139" and SAHKOJLASTOMTIH to "766"
+        function setComboBoxesAfterRisuChosen(jatelajiCombo)
+        {
+            if (jatelajiCombo.value == '0840')
+            {
+                skipOnChangeEvents = true;
+                var name = jatelajiCombo.name;
+                var jpIndex = jatelajiCombo.name.substring(jatelajiCombo.name.length - 2, jatelajiCombo.name.length - 1);
+                var astiaIndex = jatelajiCombo.name.substring(jatelajiCombo.name.length - 1);
+                //alert('jatelaji combo ' + name + ' changed to ' + event.target.value + ' jp: ' + jpIndex + ', a: ' + astiaIndex);
+                var astiaDropdown = $('#SAHKOJLASTIA' + jpIndex + astiaIndex);
+                var omistusDropdown = $('#SAHKOJLASTOM' + jpIndex + astiaIndex);
+                var tiheysDropdown = $('#SAHKOJLASTOMTIH' + jpIndex + astiaIndex);
+
+                astiaDropdown.append($('<option></option>').val('92').html(''));
+                astiaDropdown.val('92').change();
+                omistusDropdown.append($('<option></option>').val('139').html(''));
+                omistusDropdown.val('139').change();
+                tiheysDropdown.append($('<option></option>').val('766').html(''));
+                tiheysDropdown.val('766').change();
+            }
+        }
+
+        //function setDateValue() copied away from here
+        function setDateValue(fieldname, datevalue)
+        {
+            //alert('in setDateValue(' + fieldname + ', ' + datevalue + ')');
+            if ($('#' + fieldname).length)
+            {
+                //alert("setting #" + fieldname + " to " + datevalue);
+                $('#' + fieldname).val(datevalue);
+                //alert("set #" + fieldname + " to " + datevalue);
+            }
+        }
+
+        function beginsWith(fullstring, expr)
+        {
+            if (fullstring.length < expr.length)
+            {
+                return false;
+            }
+            return fullstring.substr(0, expr.length) == expr;
+        }
+
+        //Defaults for datepickers
+        $.datepicker.setDefaults({ showOn: "both", buttonImage: "https://jqueryui.com/resources/demos/datepicker/images/calendar.gif", buttonImageOnly: true, buttonText: '' });
+        //$('#JatepisteAlkamisPvm1').datepicker({ minDate: getMinDate(2) });
+        //$('#TILAUSTYHJENNYSPVM20').datepicker({ minDate: getMinDate(4) });
+        //Defaults for starting days
+        
+        $('#JatepisteAlkamisPvm' + 1).datepicker({ minDate: getMinDate(2) });
+            
+                $('#TILAUSTYHJENNYSPVM' + 1 + 0).datepicker({ minDate: getMinDate(4) });
+                
+                $('#TILAUSTYHJENNYSPVM' + 1 + 1).datepicker({ minDate: getMinDate(4) });
+                
+        //ORIGINAL:
+        //$.datepicker.setDefaults({showOn: "both", buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif", buttonImageOnly: true, minDate: getMinDate(4)});
+
+        //SH:TESTING date range
+        //$.datepicker.setDefaults({ showOn: "both", buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif", buttonImageOnly: true });
+        $(".datetimefield").datepicker($.datepicker.regional[_currentLanguageCode]);
+//        $(".datetimefield").datepicker('option', 'showOn', 'both');
+//        $(".datetimefield").datepicker('option', 'buttonImage', 'http://jqueryui.com/resources/demos/datepicker/images/calendar.gif');
+//        $(".datetimefield").datepicker('option', 'buttonImageOnly', 'true');
+//        $(".datetimefield").datepicker({showOn: "both", buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif", buttonImageOnly: true});
+//        $(".datetimefield").datepicker($.datepicker.regional[_currentLanguageCode], {showOn: "both", buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif", buttonImageOnly: true});
+        
+        //hideOrShowPakollisetTiedot();
+    });
+
+    function getMinDate(amtDays)
+    {
+        var minDate = new Date();
+        minDate.setDate((new Date()).getDate() + amtDays);
+        return minDate;
+    }
+
+    function kopioiPvmKaikillaJatepisteille(pvmField)
+    {
+        
+            if ($('#JatepisteAlkamisPvm1').length)
+            {
+                $('#JatepisteAlkamisPvm1').val(pvmField.value);
+            }
+
+    }
+
+    function hideOrShowPakollisetTiedot()
+    {
+        // "pakolliset tiedot"-teksti, sekä alalaidassa oleva "hinnat yhteensä" laatikko näytetään ainoastaan jos on vähintään yksi jätepiste "avattuna"
+        //var ele = document.getElementById("pakollisetTiedotDiv");
+        if (amtOpenJp > 0 || "False" == "True")
+        {
+            //alert('in (show) hideOrShowPakollisetTiedot(): amtOpenJp = ' + amtOpenJp);
+            document.getElementById("pakollisetTiedotDiv").style.visibility = "visible";
+            //$('#pakollisetTiedotDiv').show();
+            //$('#pakollisetTiedotDiv').visibility='visible';
+            //ele.style.visibility = 'visible';
+            //document.getElementById('pakollisetTiedotDiv').style.display = 'block';   //  or 'inline'
+            $('#hinnatYhteensaDiv').show();
+        }
+        else
+        {
+            //alert('in (hide) hideOrShowPakollisetTiedot(): amtOpenJp = ' + amtOpenJp);
+            document.getElementById("pakollisetTiedotDiv").style.visibility = "hidden";
+            //$('#pakollisetTiedotDiv').hide();
+            //$('#pakollisetTiedotDiv').visibility='hidden';
+            //ele.style.visibility = 'hidden';
+            //document.getElementById('pakollisetTiedotDiv').style.display = 'inline';
+            $('#hinnatYhteensaDiv').hide();
+        }
+    }
+
+    function setKaikkiJatepisteetButtonClass()
+    {
+        // check if all are open
+        var kaikkiAuki = true;
+
+            //alert("setKaikkiJatepisteetButtonClass(): checking one jp: " + $('#jpDiv' + 1).css('display'));
+            if ($('#jpDiv' + 1).css('display') == 'none')
+            {
+                kaikkiAuki = false;
+            }
+
+        if (kaikkiAuki)
+        {
+            if ($('#btnAvaaKaikki').hasClass('jp_expand_all'))
+            {
+                $('#btnAvaaKaikki').removeClass('jp_expand_all').addClass('jp_collapse_all');
+                $('#btnAvaaKaikki').html('Sulje kaikki sijaintipaikat');
+            }
+        }
+        else
+        {
+            if ($('#btnAvaaKaikki').hasClass('jp_collapse_all')) {
+                $('#btnAvaaKaikki').removeClass('jp_collapse_all').addClass('jp_expand_all');
+                $('#btnAvaaKaikki').html('Avaa kaikki sijaintipaikat');
+            }
+        }
+    }
+
+    function avaaTaiSuljeKaikkiJatepisteet()
+    {
+        if ($('#btnAvaaKaikki').hasClass('jp_expand_all'))
+        {
+            avaaKaikkiJatepisteet();
+            setKaikkiJatepisteetButtonClass();
+        }
+        else
+        {
+            suljeKaikkiJatepisteet();
+            setKaikkiJatepisteetButtonClass();
+        }
+        hideOrShowPakollisetTiedot();
+    }
+
+    function avaaKaikkiJatepisteet()
+    {
+
+        setVisibility('1', 'block');
+        openClass($('#btnJp1'));
+
+    }
+
+    function suljeKaikkiJatepisteet()
+    {
+
+        setVisibility('1', 'none');
+        closeClass($('#btnJp1'));
+
+    }
+
+    //function lasketaankoTyhjennysPvmAlkaen(datevalue)
+    function ensureNextEmptyingDatesUpdated(datevalue)
+    {
+        if (!$('#LasketaankoTyhjennysAlkaenPvm').val())
+        {
+            //alert("lasketaanko tyhjennyspvm alkaen not asked");
+            
+            $("#dialog-recompute-next-confirm").css('visibility', 'visible');
+            $(function()
+            {
+                //alert('showing dialog (datevalue is ' + datevalue + ')');
+                $("#dialog-recompute-next-confirm").dialog
+                    ({
+                        closeOnEscape: false,
+                        open: function(event, ui)
+                        {
+                            $(".ui-dialog-titlebar-close", ui).hide();
+                        },
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons:
+                            {
+                                'Ei': function()
+                                {
+                                    $('#LasketaankoTyhjennysAlkaenPvm').val('false');
+                                    $(this).dialog("close");
+                                    //alert("No? NO!?? Oh well, that is your choice");
+                                },
+                                'Kyllä': function()
+                                {
+                                    $('#LasketaankoTyhjennysAlkaenPvm').val('true');
+                                    $(this).dialog("close");
+                                    //alert("invoking update method right away!");
+                                    //alertSomething(datevalue);
+                                    computeAllNextEmptyingDates(datevalue);
+                                }
+                            }
+                    });
+            });
+            return;
+                       
+            //alert('if you see this msg, something has gone all wrong');
+            //if (confirm('Haluatko, että seuraava vakiotyhjennyksen tyhjennysväli lasketaan uudestaan tästä ylimääräisestä tyhjennyksestä alkaen?'))
+            //{
+            //    $('#LasketaankoTyhjennysAlkaenPvm').val('true');
+            //}
+            //else
+            //{
+            //    $('#LasketaankoTyhjennysAlkaenPvm').val('false');
+            //}
+        }
+        //alert("lasketaankoTyhjennysPvmAlkaen returning " + ($('#LasketaankoTyhjennysAlkaenPvm').val() == "true"));
+        if ($('#LasketaankoTyhjennysAlkaenPvm').val() == "true")
+        {
+            //alert('Already replied confirmative once to the question "update next emptying dates" -> invoking update method');
+            //alertSomething(datevalue);
+            computeAllNextEmptyingDates(datevalue);
+        }
+        else
+        {
+            //alert('Already replied AFFIRMATIVE to the question "update next emptying dates" -> not updating');
+        }
+    }
+
+
+    function computeAllNextEmptyingDates(datevalue)
+    {
+        //alert('lasketaanpas nyt kaikki seuraavat tyhjennyspäivämäärät');
+
+                computeNextEmptyingDate(datevalue, '' + 1 + 0);
+
+                computeNextEmptyingDate(datevalue, '' + 1 + 1);
+
+    }
+
+    // laskee ja täyttää "seuraava tyhjennys" kentän arvo JOS löytyy "viikon välein" kenttä (löytyy vakio-kaivoille)
+    // JA "tilataan extra" ruksi on päälle.
+    // laskeminen tapahtuu kunkin kaivon extratyhejnnyspvm:n ja viikonvälein perusteella
+    function computeNextEmptyingDate(startDate, fieldnameSuffix)
+    {
+        //alert('in computeNextEmptyingDate(); startDate is ' + startDate + ' and fielnnameSuffix is ' + fieldnameSuffix);
+        var intervalField = document.getElementsByName('VIIKONVALEIN' + fieldnameSuffix)[0];
+        if (intervalField == null)
+        {
+            //alert('suffix ' + fieldnameSuffix + ': no elements found by the name of VIIKONVALEIN' + fieldnameSuffix);
+            return;
+        }
+            
+        var cb = $('#EXTRATYHJENNETAAN' + fieldnameSuffix);
+        //alert(fieldnameSuffix + ' field exists? ' + cb.length + '; extra? ' + cb.is(":checked"));
+        if (!cb.is(":checked"))
+        {
+            //alert('EXTRATYHJENNETAAN' + fieldnameSuffix + ' is not checked -> skipping');
+            return;
+        }
+        //alert('VIIKONVALEIN' + fieldnameSuffix + ' value is ' + intervalField.value + '; isNumeric? ' + isNumeric(intervalField.value) + ' number: ' + Number(intervalField.value) + '  > 0? ' + (Number(intervalField.value) > 0));
+        var daysToAdd;
+        if (Number(intervalField.value) > 0) // mind: isNumeric(intervalField.value) does NOT return the desired result
+        {
+            //alert(intervalField.value + ' is a number');
+            daysToAdd = Number(intervalField.value) * 7;
+            //alert(intervalField.value + ' multiplied by 7 is ' + daysToAdd);
+        }
+        else
+        {
+            //alert(intervalField.value + ' is not a number!');
+            daysToAdd = 0;
+        }
+            
+        var computedDate = toDate(startDate);
+        computedDate.setDate(computedDate.getDate() + daysToAdd);
+        //alert('suffix: ' + fieldnameSuffix + '; startDate is ' + startDate + '; days to add is ' + daysToAdd + '; next date is ' + toString(computedDate));
+        setDateValue('SEURAAVATYHJENNYS' + fieldnameSuffix, toString(computedDate));
+    }
+
+    //function toDate() copied here
+    function toDate(aString)
+    {
+        var d = aString.split('.');
+        var year = d[2];
+        var month = d[1];
+        var day = d[0];
+        return new Date(year, month - 1, day);
+    }
+        
+    function toString(aDate)
+    {
+        return '' + aDate.getDate() + '.' + (aDate.getMonth() + 1) + '.' + aDate.getFullYear();
+    }
+
+    function setDateValue(fieldname, datevalue)
+    {
+        //alert('in setDateValue(' + fieldname + ', ' + datevalue + ')');
+        if ($('#' + fieldname).length)
+        {
+            //alert("setting #" + fieldname + " to " + datevalue);
+            $('#' + fieldname).val(datevalue);
+            //alert("set #" + fieldname + " to " + datevalue);
+        }
+    }
+
+    function toggleClass(btn)
+    {
+        if ($(btn).hasClass('jp_expand_liete'))
+        {
+            $(btn).removeClass('jp_expand_liete').addClass('jp_collapse_liete');
+            amtOpenJp = amtOpenJp + 1;
+            //alert("added 1");
+        }
+        else if ($(btn).hasClass('jp_collapse_liete'))
+        {
+            $(btn).removeClass('jp_collapse_liete').addClass('jp_expand_liete');
+            amtOpenJp = amtOpenJp - 1;
+            //alert("subtracted 1");
+        }
+        else if ($(btn).hasClass('jp_expand_muukuinliete'))
+        {
+            $(btn).removeClass('jp_expand_muukuinliete').addClass('jp_collapse_muukuinliete');
+            amtOpenJp = amtOpenJp + 1;
+            //alert("added 1");
+        }
+        else if ($(btn).hasClass('jp_collapse_muukuinliete'))
+        {
+            $(btn).removeClass('jp_collapse_muukuinliete').addClass('jp_expand_muukuinliete');
+            amtOpenJp = amtOpenJp - 1;
+            //alert("subtracted 1");
+        }
+        hideOrShowPakollisetTiedot();
+    }
+
+    function openClass(btn)
+    {
+        if ($(btn).hasClass('jp_expand_liete'))
+        {
+            $(btn).removeClass('jp_expand_liete').addClass('jp_collapse_liete');
+            amtOpenJp = amtOpenJp + 1;
+            //alert("added 1");
+        }
+        else if ($(btn).hasClass('jp_expand_muukuinliete'))
+        {
+            $(btn).removeClass('jp_expand_muukuinliete').addClass('jp_collapse_muukuinliete');
+            amtOpenJp = amtOpenJp + 1;
+            //alert("added 1");
+        }
+    }
+
+    function closeClass(btn) {
+        if ($(btn).hasClass('jp_collapse_liete')) {
+            $(btn).removeClass('jp_collapse_liete').addClass('jp_expand_liete');
+            amtOpenJp = amtOpenJp - 1;
+            //alert("subtracted 1");
+        }
+        else if ($(btn).hasClass('jp_collapse_muukuinliete')) {
+            $(btn).removeClass('jp_collapse_muukuinliete').addClass('jp_expand_muukuinliete');
+            amtOpenJp = amtOpenJp - 1;
+            //alert("subtracted 1");
+        }
+    }
+
+
+    function toggleVisibility(jpNr)
+    {
+        if ($('#jpDiv' + jpNr).css('display') == 'none')
+        {
+            setVisibility(jpNr, 'block');
+        }
+        else
+        {
+            setVisibility(jpNr, 'none');
+        }
+    }
+
+    function setVisibility(jpNr, visibility)
+    {
+        $('#jpDiv' + jpNr).css('display', visibility);
+        $('#JatepisteDisplay' + jpNr).val(visibility);
+    }
+
+    function getTabName()
+    {
+        //alert("tabName is now T2");
+        return "T2";
+    }
+
+    function initPageCaptions() {
+
+        $('#mainTitle').html(_textMainTitle);
+        $('#logoutDiv').show();
+        $('#logoutAnchor').html(_logoutText);
+        $('#dialogResetCaption').html(_textResetCaption);
+        $('#dialogResetText').html(_textResetText);
+        if (_currentLanguageCode != _previousLanguageCode) {
+            $('#mainHelp').html(_textHelp);
+            $('#mainFeedback').html(_textFeedback);
+            $('#T1').html(_textTab1);
+            $('#T2').html(_textTab2);
+            $('#T3').html(_textTab3);
+            $('#T4').html(_textTab4);
+            $('#T5').html(_textTab5);
+            $('#T6').html(_textTab6);
+            $('#T7').html(_textTab7);
+            $('#footer').html(_textCopyRight);
+            $('#popupErrorCaption').html(_textPopupErrorCaption);
+            $('#PopupErrorMessage').html(_textPopupErrorMessage1);
+            $('#PopupErrorMessage2').html(_textPopupErrorMessage2);
+            //$('#dialogResetText').html(_textResetText);
+            $('#dialogAstiaDeleteCaption').html(_textAstiaDeleteCaption);
+            $('#dialogAstiaDelete').html(_textAstiaDeleteText);
+            $('#dialogSaveNewOrderWithExtraOkCaption').html(_textSaveNewOrderWithExtraOkCaption);
+            $('#dialogSaveNewOrderWithExtraOkText').html(_textSaveNewOrderWithExtraOkText);
+            $('#dialogSaveNewOrderNoExtraOkCaption').html(_textSaveNewOrderNoExtraOkCaption);
+            $('#dialogSaveNewOrderNoExtraOkText').html(_textSaveNewOrderNoExtraOkText);
+            $('#dialogSaveOkCaption').html(_textSaveOkCaption);
+            $('#dialogSaveOkText').html(_textSaveOkText);
+            $('#dialogSaveOkImmediateCaption').html(_textSaveOkImmediateCaption);
+            $('#dialogSaveOkImmediateText').html(_textSaveOkImmediateText);
+            $('#dialogLinkPrintPdf').html(_textPrintPdf);
+            $('#dialogButtonErrorOk').val(_textOk);
+            $('#dialogButtonSaveOkEnd').val(_textEnd);
+            $('#dialogButtonSaveNewOrderNoExtraOkEnd').val(_textEnd);
+            $('#dialogButtonSaveNewOrderWithExtraOkEnd').val(_textEnd);
+            $('#dialogButtonSaveOkTarjousNew').val(_textNewBid);
+            $('#dialogButtonSaveOkTarjousNo').val(_textEnd);
+            $('#dialogButtonResetYes').val(_textYes);
+            $('#dialogButtonResetNo').val(_textNo);
+            $('#dialogButtonAstiaDeleteYes').val(_textYes);
+            $('#dialogButtonAstiaDeleteNo').val(_textNo);
+            $('#popupExpirationCaption').html(_textPopupExpirationCaption);
+            $('#PopupExpirationMessage').html(_textPopupExpirationMessage1);
+            $('#PopupExpirationMessage2').html(_textPopupExpirationMessage2);
+            $('#dialogButtonExpirationOk').val(_textAloitaAlusta);
+            $('#popupLoggedOutFromSuomiFiCaption').html(_textPopupLoggedOutFromSuomiFiCaption);
+            $('#PopupLoggedOutFromSuomiFiMessage').html(_textPopupLoggedOutFromSuomiFiMessage1);
+            $('#PopupLoggedOutFromSuomiFiMessage2').html(_textPopupLoggedOutFromSuomiFiMessage2);
+            $('#dialogButtonLoggedOutFromSuomiFiOk').val(_textLoggedOutFromSuomiFiAloitaAlusta);
+            $('#dialogButtonSaveOkImmediateNew').val(_textEnd);
+            $('#popupChangeErrorCaption').html(_textPopupChangeErrorCaption);
+            $('#PopupChangeErrorMessage').html(_textPopupChangeErrorMessage1);
+            $('#PopupChangeErrorMessage2').html(_textPopupChangeErrorMessage2);
+            $('#dialogButtonChangeErrorOk').val(_textOk);
+            $('#dialogJatepisteResetCaption').html(_textJatepisteResetCaption);
+            $('#dialogJatepisteResetText').html(_textJatepisteResetText);
+            $('#dialogButtonJatepisteResetYes').val(_textYes);
+            $('#dialogButtonJatepisteResetNo').val(_textNo);
+            $('#dialogResetAndRollbackCaption').html(_textResetAndRollbackCaption);
+            $('#dialogResetAndRollbackText').html(_textResetAndRollbackText);
+            $('#dialogButtonResetAndRollbackYes').val(_textYes);
+            $('#dialogButtonResetAndRollbackNo').val(_textNo);
+            $('#dialogYhteyshenkiloCaption').html(_textOmistajanvaihtoCaption);
+            $('#dialogYhteyshenkiloText').html(_textOmistajanvaihtoText);
+            $('#dialogButtonYhteyshenkiloConfirmationYes').val(_textYes);
+            $('#dialogButtonYhteyshenkiloConfirmationNo').val(_textNo);
+            $('#dialogYhteystietoResetCaption').html(_textYhteystietoResetCaption);
+            $('#dialogYhteystietoResetText').html(_textYhteystietoResetText);
+            $('#dialogButtonYhteystietoResetYes').val(_textYes);
+            $('#dialogButtonYhteystietoResetNo').val(_textNo);
+            $('#dialogPerustietoResetCaption').html(_textPerustietoResetCaption);
+            $('#dialogPerustietoResetText').html(_textPerustietoResetText);
+            $('#dialogButtonPerustietoResetYes').val(_textYes);
+            $('#dialogButtonPerustietoResetNo').val(_textNo);
+
+            $('#dialogSaveOkCaptionAndExtra').html(_textSaveOkCaptionAndExtra);
+            $('#dialogSaveOkTextAndExtra').html(_textSaveOkTextAndExtra);
+            $('#dialogButtonSaveOkEndAndExtra').val(_textEnd);
+            $('#dialogSaveOkCaptionOnlyExtra').html(_textSaveOkCaptionOnlyExtra);
+            $('#dialogSaveOkTextOnlyExtra').html(_textSaveOkTextOnlyExtra);
+            $('#dialogButtonSaveOkEndOnlyExtra').val(_textEnd);
+
+            $('#dialogIncludeLajiYhteissopimukseenCaption').html(_dialogIncludeLajiYhteissopimukseenCaption);
+            $('#dialogIncludeLajiYhteissopimukseenText').html(_dialogIncludeLajiYhteissopimukseenText);
+            $('#dialogButtonIncludeLajiYes').val(_textYes);
+            $('#dialogButtonIncludeLajiNo').val(_textNo);
+        }
+        _previousLanguageCode = _currentLanguageCode;
+    }
+
+</script>
+
+
+
+
+<input type="hidden" id="JatkotyhjennysLupaPyydetty" name="JatkotyhjennysLupaPyydetty" value="False" />
+<input type="hidden" id="JatkotyhjennysHyvaksytty" name="JatkotyhjennysHyvaksytty" value="False" />
+<input type="hidden" id="PyydaJatkotyhjennysLuvan" name="PyydaJatkotyhjennysLuvan" value="False" />
+<input type="hidden" id="LasketaankoTyhjennysAlkaenPvm" name="LasketaankoTyhjennysAlkaenPvm" value="" />
+
+
+        <table>
+            <tr>
+                <td class="summaryStreetAddress">KATU 1</td>
+                <td class="summaryPostalCode">01000</td>
+                <td class="summaryCity">HELSINKI</td>
+            </tr>
+        </table>
+
+
+<div id="pageLinksGoHere_2" class="pagelinkplaceholder"></div>
+
+<table width="100%">
+    <tr>
+        <td colspan="4">
+        <table width="100%">
+            <tr>
+            <td> 
+                <div id="pakollisetTiedotDiv" ><h2><html>Tähdellä ( <font size="4">*</font> ) merkityt kentät ovat pakollisia</html> <br />
+                Hinnat päivittyvät automaattisesti valintoja muutettaessa </h2>
+                </div>
+            </td>
+            <td align="right">
+                 
+                <b>  <a href="#" onclick="HelpWindow=window.open('/Logica.Ytv.Logistics.Subscription.WebUpdate/Content/Help/Jatepiste_' + _currentLanguageCode + '.html','MyWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=900'); return false;">Ohje</a> </b> &nbsp | &nbsp<b>  <a href="#" onclick="PdfWindow=window.open('/Logica.Ytv.Logistics.Subscription.WebUpdate/' + _currentLanguageCode + '/Palvelutilaus.aspx/CreatePdfSummary','MyWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=900');return false;" >Näytä yhteenveto (pdf)</a> </b> 
+            </td>
+            </tr>
+            
+        </table>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<!-- jatepiste content goes here -->
+
+    <script type="text/javascript">
+        if ("jp_collapse_muukuinliete".match("^jp_collapse"))
+        {
+            amtOpenJp = amtOpenJp + 1;
+        }
+    </script>
+
+        <button id="btnJp1" class="jp_collapse_muukuinliete" onclick="toggleVisibility('1'); toggleClass(this); return false;">
+            1. sijaintipaikka, jäteastioita
+        </button>
+        <br />
+        <fieldset id="jpDiv1" style="display: block;">
+        <input type="hidden" id="JatepisteDisplay1" name="JatepisteDisplay1" value="block" />
+        <!-- div id="jpDiv1" style="display: block;" -->
+
+        <br />
+        <!-- hidden input field JatepisteNumero{nr} -->
+        <table class="astiatable"><tr><td><label for="Jatelaji">Jätelaji</label></td><td><label for="Astiakoko">Astiakoko</label></td><td><label for="AstianOmistus">Astian omistus</label></td><td><label for="TyhjennysTiheys">Tyhjennystiheys</label></td><td><label for="Lkm">Lkm</label></td><td><label for="Tyhjennys">Tyhjennys</label></td><td><label for="Vuokra">Vuokra</label></td><td><label class="modifiedShortWidth" for="Siirtomatka">Siirtomatka</label></td><td><label for="Yhteensa">Yhteensä</label></td><td></td></tr><tr><td><select class="SAHKOJATELAJI" id="SAHKOJATELAJI10" name="SAHKOJATELAJI10" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option selected='yes' value="0110">Sekaj&#228;te</option></select></td><td><select class="SAHKOJLASTIA" id="SAHKOJLASTIA10" name="SAHKOJLASTIA10" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option value="1" title="astia, 140 l">astia, 140 l</option><option selected='yes' value="2">astia, 240 l</option><option value="3" title="astia, 300 l">astia, 300 l</option><option value="4" title="astia, 600 l, py&#246;r&#228;llinen">astia, 600 l, py&#246;r&#228;llinen</option><option value="43" title="astia, 660 l, isopy&#246;r&#228;inen">astia, 660 l, isopy&#246;r&#228;inen</option></select></td><td><select class="SAHKOJLASTOM" id="SAHKOJLASTOM10" name="SAHKOJLASTOM10" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option value="3" title="Kiinteist&#246;n">Kiinteist&#246;n</option><option selected='yes' value="4">Vuokrattu</option></select></td><td><select class="SAHKOJLASTOMTIH" id="SAHKOJLASTOMTIH10" name="SAHKOJLASTOMTIH10" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option value="21" title="joka 2. viikko">joka 2. viikko</option><option value="22" title="joka 4. viikko">joka 4. viikko</option><option selected='yes' value="20">1 krt/viikko</option><option value="23" title="2 krt/viikko">2 krt/viikko</option><option value="24" title="3 krt/viikko">3 krt/viikko</option></select></td><td><select class="ASTIALKM" id="ASTIALKM10" name="ASTIALKM10"  title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option selected='yes' value="1">1</option><option value="2" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">2</option><option value="3" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">3</option><option value="4" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">4</option><option value="5" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">5</option><option value="6" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">6</option><option value="7" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">7</option><option value="8" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">8</option><option value="9" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">9</option><option value="10" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">10</option><option value="11" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">11</option><option value="12" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">12</option><option value="13" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">13</option><option value="14" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">14</option><option value="15" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">15</option><option value="16" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">16</option><option value="17" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">17</option><option value="18" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">18</option><option value="19" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">19</option><option value="20" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">20</option><option value="21" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">21</option><option value="22" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">22</option><option value="23" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">23</option><option value="24" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">24</option><option value="25" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">25</option></select></td><td> <input type="text"  class="ASTIATYHJENNYS"  name="ASTIATYHJENNYS10" readonly="readonly" value= ""  /></td><td> <input type="text"  class="ASTIAVUOKRA"  name="ASTIAVUOKRA10" readonly="readonly" value= "1"  /></td><td> <input type="text"  class="ASTIASIIRTOMATKA"  name="ASTIASIIRTOMATKA10" readonly="readonly" value= "0,00"  /></td><td> <input type="text"  class="ASTIAYHTEENSA"  name="ASTIAYHTEENSA10" readonly="readonly" value= ""  /></td><td></td></tr><tr><td><select class="SAHKOJATELAJI" id="SAHKOJATELAJI11" name="SAHKOJATELAJI11" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option selected='yes' value="0870">Muovi</option></select></td><td><select class="SAHKOJLASTIA" id="SAHKOJLASTIA11" name="SAHKOJLASTIA11" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option value="358" title="astia, 140 l">astia, 140 l</option><option selected='yes' value="278">astia, 240 l</option><option value="279" title="astia, 300 l">astia, 300 l</option><option value="356" title="astia, 660 l, isopy&#246;r&#228;inen">astia, 660 l, isopy&#246;r&#228;inen</option></select></td><td><select class="SAHKOJLASTOM" id="SAHKOJLASTOM11" name="SAHKOJLASTOM11" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option value="358" title="Kiinteist&#246;n">Kiinteist&#246;n</option><option selected='yes' value="359">Vuokrattu</option></select></td><td><select class="SAHKOJLASTOMTIH" id="SAHKOJLASTOMTIH11" name="SAHKOJLASTOMTIH11" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option value="1910" title="joka 4. viikko">joka 4. viikko</option><option selected='yes' value="1909">joka 2. viikko</option><option value="1906" title="1 krt/viikko">1 krt/viikko</option></select></td><td><select class="ASTIALKM" id="ASTIALKM11" name="ASTIALKM11"  title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option selected='yes' value="1">1</option><option value="2" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">2</option><option value="3" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">3</option><option value="4" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">4</option><option value="5" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">5</option><option value="6" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">6</option><option value="7" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">7</option><option value="8" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">8</option><option value="9" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">9</option><option value="10" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">10</option><option value="11" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">11</option><option value="12" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">12</option><option value="13" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">13</option><option value="14" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">14</option><option value="15" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">15</option><option value="16" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">16</option><option value="17" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">17</option><option value="18" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">18</option><option value="19" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">19</option><option value="20" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">20</option><option value="21" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">21</option><option value="22" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">22</option><option value="23" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">23</option><option value="24" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">24</option><option value="25" title="Valitse oikea vaihtoehto klikkaamalla hiirellä">25</option></select></td><td> <input type="text"  class="ASTIATYHJENNYS"  name="ASTIATYHJENNYS11" readonly="readonly" value= ""  /></td><td> <input type="text"  class="ASTIAVUOKRA"  name="ASTIAVUOKRA11" readonly="readonly" value= ""  /></td><td> <input type="text"  class="ASTIASIIRTOMATKA"  name="ASTIASIIRTOMATKA11" readonly="readonly" value= ""  /></td><td> <input type="text"  class="ASTIAYHTEENSA"  name="ASTIAYHTEENSA11" readonly="readonly" value= ""  /></td><td><b><a  href="#contents-2" onclick="_deleteJatepisteAstia = 11; centerPopup('popupAstiaDeleteConfirmation'); loadPopup('popupAstiaDeleteConfirmation');" title="Poista tämä astiarivi">Poista</a></b></td></tr><tr><td colspan="9"> <a: id="Tyhjennyspaivat" class="ClueTip" tabindex="-1" href="" title="Info - Sijaintipaikka 1 | <table><tr><td>Muovi - maanantai / Seuraava tyhjennys: 14.9.2020</td></tr><tr><td></td></tr><tr><td>Sekajäte - torstai / Seuraava tyhjennys: 17.9.2020</td></tr><tr><td></td></tr></table>">    <label for="Tyhjennyspaivat" class = "modifiedNoWidthBlue"> Näytä seuraavat tyhjennyspäivät   </label>     </a></td><td></td></tr><tr><td colspan="2"> <button name="AddNewJatepisteAstia" class="lisaa_astia" onclick="_addNewJatepisteAstia = 1; clickElement('T2');return false;">Lisää seuraava palvelu</button></td><td colspan="3"> <label class="modifiedRight">Sijaintipaikan hinnat yhteensä</label> </td><td> <input type="text" class="ASTIATYHJENNYSYHTEENSA" name="ASTIATYHJENNYSYHTEENSA" readonly="readonly"  value= ""  /></td><td> <input type="text" class="ASTIAVUOKRAYHTEENSA" name="ASTIAVUOKRAYHTEENSA" readonly="readonly"  value= ""  /></td><td> <input type="text" class="ASTIASIIRTOMATKAYHTEENSA" name="ASTIASIIRTOMATKAYHTEENSA" readonly="readonly"  value= ""  /></td><td> <input type="text" class="ASTIAYHTEENSAYHTEENSA" name="ASTIAVASTIAYHTEENSAYHTEENSAUOKRA" readonly="readonly"  value= ""  /></td><td></td></tr></tr></table>
+        <br />
+            <table class="generaltablenowidth">
+                <tr>
+                    <td class="jtCol1">
+                        <label for="Sijainti">Sijainti tontilla</label>
+                    </td>
+                    <td class="jtCol2">
+
+                        &nbsp;&nbsp;
+
+                        <a id="OhjeSijainti" class="ClueTip" tabindex="-1" href="#" title="Ohje - Sijainti tontilla | <table>
+  <tr>
+    <td>Kerro tässä kohdassa astian/jätepisteen tarkempi sijaintipaikka kiinteistöllä, jos se ei ole heti pihaan ajon luona näkyvissä; esim. Talon pääty, A-talon kohdalla. Tämä tieto auttaa kuljettajia löytämään jätepisteen. </td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Jos kiinteistöllä on useampi jätepiste, on sijainti kerrottava jokaiselle erikseen. Tieto on pakollinen vain jos lisäät jätepalveluun uuden jätepisteen.</td>
+  </tr>
+</table>">
+                            <img width="11px" height="11px" src="/Logica.Ytv.Logistics.Subscription.WebUpdate/Content/question-icon16.gif" alt="" />
+                        </a>
+                    </td>
+                    <td class="jtCol3" colspan="4">
+                         <textarea class="JatepisteSelite" name="JatepisteSelite1" cols="70" rows="1"  title = "Kuvaile missä jätepiste sijaitsee kiinteistön alueella, jos ei ole selvästi löydettävissä kun kiinteistölle ajetaan." maxlength = "250" style = "width: 638px">Sekaj&#228;te Tien varressa / katos</textarea>
+                        
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td class="jtCol1">
+                        <label for="Siirtomatka">Siirtomatka</label>
+                    </td>
+                    <td class="jtCol2">
+                        * <a id="OhjeSiirtomatka" class="ClueTip" tabindex="-1" href="#" title="Ohje - Siirtomatka | <table>
+  <tr>
+    <td>Matka, jonka jäteautonkuljettajan täytyy siirtää astiaa jätepisteestä voidakseen tyhjentää sen. Käsin siirrettävät jäteastiat on sijoitettava sellaiseen paikkaan, johon jäteautot pääsevät esteettömästi ja turvallisesti vähintään kymmenen metrin päähän tai lähemmäksi. </td>
+  </tr>
+  <tr>
+  <td></td>
+  </tr>
+  <tr>
+    <td>Jos kiinteistöllä ei ole mahdollisuutta sijoittaa jäteastioita em. tavalla ja jäteastiaa joudutaan siirtämään käsin jätepisteestä jäteautoon, veloitetaan siirtomatka jokaiselta tyhjennyskerralta ja jokaiselta siirrettävältä astialta.
+Jos astian sijainti on muuttunut ja muutos vaikuttaa siirtomatkan pituuteen, muuta se valitsemalla sopiva vaihtoehto.
+</td>
+  </tr>
+</table>">
+                            <img width="11px" height="11px" src="/Logica.Ytv.Logistics.Subscription.WebUpdate/Content/question-icon16.gif" alt="" />
+                        </a>
+                    </td>
+                    <td class="jtCol3">
+                        <select class="SiirtomatkaKoodi" id="SiirtomatkaKoodi1" name="SiirtomatkaKoodi1" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option selected='yes' value="000">0-10 m</option><option value="001" title="11-20 m">11-20 m</option><option value="002" title="21-30 m">21-30 m</option><option value="003" title="31-40 m">31-40 m</option><option value="004" title="41-50 m">41-50 m</option><option value="005" title="Yli 50 m">Yli 50 m</option></select>
+                    </td>
+                    <td class="jtCol4">
+                        <label class="modifiedRight" for="Lukitus">Jätetilan lukitus</label>
+                    </td>
+                    <td class="jtCol5">
+                        * <a id="OhjeJatetilanLukitus" class="ClueTip" tabindex="-1" href="#" title="Ohje - Jätetilan lukitus | Jos jätetila on lukittu, valitse lukitustapa. HSY-riippulukko tarjotaan käyttöön esim. kioskeille.
+Tarkemmat ohjeet lukitustavoista löytyy sivukohtaisesta ohjeesta.">
+                            <img width="11px" height="11px" src="/Logica.Ytv.Logistics.Subscription.WebUpdate/Content/question-icon16.gif" alt="" />
+                          </a>
+                    </td>
+                    <td class="jtCol6">
+                        <select class="LukitusKoodi" id="LukitusKoodi1" name="LukitusKoodi1" title="Saat vaihtoehdot näkyviin kenttää klikkaamalla" ><option selected='yes' value="000">Ei lukitusta</option><option value="001" title="HSY avain">HSY avain</option><option value="002" title="Muu avain">Muu avain</option><option value="003" title="HSY-riippulukko">HSY-riippulukko</option><option value="004" title="Ovikoodi">Ovikoodi</option><option value="005" title="Avains&#228;il&#246;">Avains&#228;il&#246;</option><option value="006" title="Kirkkonummi-avain">Kirkkonummi-avain</option><option value="007" title="Kirkkonummi-avain/avains&#228;il&#246;">Kirkkonummi-avain/avains&#228;il&#246;</option><option value="008" title="Kirkkonummi-riippulukko">Kirkkonummi-riippulukko</option><option value="009" title="Vantaa-avain">Vantaa-avain</option><option value="010" title="HSY-avains&#228;il&#246;">HSY-avains&#228;il&#246;</option></select>
+                    </td>
+                    
+                </tr>
+                
+
+                <tr><td colspan="6" >&nbsp;</td></tr>
+                <tr>
+                    <td class="jtCol1">Toivottu alkamispvm</td>
+                    <td class="jtCol2">&nbsp;&nbsp;<a id="A1" class="ClueTip" tabindex="-1" href="" title="Ohje - Toivottu alkamispvm | Mistä päivästä alkaen haluaisit jätehuollon voimaan"><img width="11px" height="11px" src="/Logica.Ytv.Logistics.Subscription.WebUpdate/Content/question-icon16.gif" alt=""/></a></td>
+                    <td class="jtCol3"><input class="datetimefield" id="JatepisteAlkamisPvm1" name="JatepisteAlkamisPvm1" style="width: 90px;" type="text" value="" onchange="kopioiPvmKaikillaJatepisteille(this)" /></td>
+                </tr>
+            </table>
+            
+            <br />
+            </fieldset>
+        </div>
+        <br />
+
+    <script type="text/javascript">
+        //alert("at this point, jätepisteet are on screen (hidden or visible)");
+        setKaikkiJatepisteetButtonClass(); // after displaying all jätepisteet, we know if we should show an "open all jp" or "close "
+        hideOrShowPakollisetTiedot();
+    </script>
+    <br /><br />
+    <br /><br />
+
+    <div id="extratyhjennysSeliteDiv">
+
+        <textarea cols="3" rows="80" name="ExtratyhjennysSelite1" id="ExtratyhjennysSelite1" style="display: none;"></textarea>
+
+    </div>
+
+    
+    <div id="hinnatYhteensaDiv">
+        <fieldset>
+            <legend></legend>
+            <td colspan="2">&nbsp;</td>
+            <table width="100%" border="0"><tr><td colspan="2" style="text-align: left; padding-left: 100px;"><strong>Palvelun hinta</strong></td></tr><tr><td style="text-align: left; padding-left: 100px;"><strong>Kaikkien vakiotyhjennysten yhteishinta vuodessa</strong></td><td style="text-align: right;"><strong><input type="text" class="jatepistehintayhteensa" name="jatepistehintayhteensa" readonly="readonly" value= "" /></strong></td></tr></table>
+
+        </fieldset>
+    </div>
+        
+    <div id="dialog-paljonLietetta-confirm" title='Tehdäänkö välityhjennys?' style="visibility: hidden">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Lietemäärä yli 14 m3, tehdäänkö välityhjennys vai jätetäänkö ylimenevä määrä seuraavaan  kertaan. Välityhjennyksellä tarkoitetaan sitä, että kaivo tyhjennetään kahdella käyntikerralla ja kummastakin kerrasta veloitetaan kuljetusmaksu ja käsittelymaksu.</p>
+    </div>
+
+
+ 
+
+
+        <button name="AddNewJatepiste" class="lisaa_jatepiste" onclick="_addNewJatepiste = '2'; clickElement('T2'); return false;">Lisää uusi sijaintipaikka, jäteastioita</button>
+        <br /><br />
+        <button name="AddNewLieteJatepiste" class="lisaa_lietejatepiste" onclick="_addNewLieteJatepiste = '2'; clickElement('T2'); return false;">Lisää uusi sijaintipaikka, sako-, harmaavesi- ja umpikaivoja</button>
+
+
+<br /><br />
+<button class="naytaHistoria" onclick="PdfWindow=window.open('/Logica.Ytv.Logistics.Subscription.WebUpdate/' + _currentLanguageCode + '/Palvelutilaus.aspx/HistoriaContentMain','MyWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=1050,height=580'); return false;" >Näytä historiatiedot</button>
+<br /><br />
+
+
+<table width="100%">
+    <tr>
+        <td colspan="4">
+        <table width="100%">
+            <tr>
+
+                <td>&nbsp;</td>
+
+
+    <div id="dialog-recompute-next-confirm" title='Muutetaanko tyhjennyspäivä?' style="visibility: hidden">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Haluatko, että seuraava vakiotyhjennyksen tyhjennysväli lasketaan uudestaan tästä ylimääräisestä tyhjennyksestä alkaen?</p>
+    </div>
+
+            
+                    <td align="right"> <a href="#contents-4" onclick="clickElement('T4');return false;"> <button class="next_page">Seuraava</button></a> </td>
+            
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+
