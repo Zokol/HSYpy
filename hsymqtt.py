@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import paho.mqtt.client as paho
 import time
 from urllib.parse import urlparse
