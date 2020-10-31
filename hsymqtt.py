@@ -29,4 +29,6 @@ data = api.parse(raw_response.text)
 for line in data:
     sendmqtt(line, data[line])
 
+sendmqtt("updated", datetime.datetime.now().strftime("%H:%M %d.%m.%Y"))
+
 sendmqtt("debug", "HSYmqtt done")
