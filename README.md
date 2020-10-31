@@ -46,6 +46,7 @@ $ python3 hsyapi.py
 
 ## MQTT usage
 ```
+$ docker run -it --rm --name mosquitto -p 1883:1883 eclipse-mosquitto 
 $ python3 hsymqtt.py 
 debug HSYmqtt started
 Sekajäte 4
