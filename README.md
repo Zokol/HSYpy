@@ -1,35 +1,39 @@
-#Crawler for HSY web interface
+# HSYpy
+**Crawler for HSY web interface**
 
-##Introduction
+## Introduction
 
-Helsingin Seudun Ympäristöpalvelut (HSY) offers reliable trash collection. Unfortunately tehy don't have a good API or application to figure out when they will collect the trash.
+Helsingin Seudun Ympäristöpalvelut (HSY) offers reliable waste collection.
+Unfortunately they don't have a good API or app to figure out when they will collect the trash.
 
-As I found myself looking for this information more than once, I wanted to make it a bit easier.
+As I found myself looking for this information more than once, opening the site, going to email for the login info and then finding the date for the next trash collection.
 
-##Installation
+I wanted to make this process a bit easier.
 
-"""
+## Installation
+
+```
 pip3 install -r requirements.txt
-"""
+```
 
 **Set your credentials to cred.json**
 ```
 palvelutunnus can be found in the HSY contract or your latest bill, under label "Jätepalvelutunnus"
 ```
 
-"""
+```
 mv cred.json.template cred.json
 vim cred.json
-"""
+```
 
-##Usage
+## Usage
 
-"""
+```
 $ python3 hsyapi.py 
 ['Muovi - maanantai / Seuraava tyhjennys: 14.9.2020', 'Sekajäte - torstai / Seuraava tyhjennys: 17.9.2020', '']
-"""
+```
 
-##Description
+## Description
 
 HSY is running ASP.NET aplication at ytvlogistiikka.net
 
@@ -38,8 +42,8 @@ As a response, you get page with list of services you have ordered, as well as p
 
 Trash collecting dates are listed in pop-up window, which includes a table of dates.
 
-Example login (cookie and request data is sanitized):
-"""
+**Example login (cookie and request data is sanitized):**
+```
 POST /Logica.Ytv.Logistics.Subscription.WebUpdate/fi/Palvelutilaus.aspx/DoLogin/2 HTTP/1.1
 Host: www.ytvlogistiikka.net
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0
@@ -54,10 +58,10 @@ Connection: close
 Cookie: ASP.NET_SessionId=1v0aqlqweeweqq01gkyggcqz
 
 HakuehtoPalvelutunnus=BB44-010030-1&HakuehtoPostinumero=01000
-"""
+```
 
-Snippet of the response:
-"""
+**Snippet of the response:**
+```
 <td colspan="9">
 	<a: id="Tyhjennyspaivat" class="ClueTip" tabindex="-1" href="" title="
 		Info - Sijaintipaikka 1 | 
@@ -89,4 +93,4 @@ Snippet of the response:
 </td>
 <td>
 </td>
-"""
+```
