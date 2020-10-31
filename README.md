@@ -1,5 +1,6 @@
 # HSYpy
 **Crawler for HSY web interface**
+**E-ink based user interface for trash collection**
 
 ## Introduction
 
@@ -9,6 +10,16 @@ Unfortunately they don't have a good API or app to figure out when they will col
 As I found myself looking for this information more than once, opening the site, going to email for the login info and then finding the date for the next trash collection.
 
 I wanted to make this process a bit easier.
+
+### Dataflow
+#### hsyapi.py
+* Pull data from HSY API with POST-request
+* Parse next collection dates from response
+* Send the waste types and dates via MQTT to broker
+
+#### ESPHome / hsy.ha.yaml
+* ESPHome-instance reads hsy/-topics
+* E-ink is updated with most recent dates
 
 ## Installation
 
@@ -26,11 +37,26 @@ mv cred.json.template cred.json
 vim cred.json
 ```
 
-## Usage
+## API-reader Usage
 
 ```
 $ python3 hsyapi.py 
-['Muovi - maanantai / Seuraava tyhjennys: 14.9.2020', 'Sekajäte - torstai / Seuraava tyhjennys: 17.9.2020', '']
+{'Sekajäte': 4, 'Muovi': 8}
+```
+
+## MQTT usage
+```
+$ python3 hsymqtt.py 
+debug HSYmqtt started
+Sekajäte 4
+Muovi 8
+debug HSYmqtt done
+```
+
+## ESPHome usage (tested with TTGO T5)
+```
+$ cd esphome/
+$ esphome hsy_ha.yaml run
 ```
 
 ## Description
