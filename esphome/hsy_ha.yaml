@@ -1,0 +1,113 @@
+esphome:
+  name: hsy
+  platform: ESP32
+  board: esp32dev
+
+wifi:
+  ssid: "SSID"
+  password: "PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Hsy Fallback Hotspot"
+    password: "B4os674PzyeT"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: GPIO39
+      mode: INPUT_PULLUP
+    name: "eink_sw1"
+    id: eink_sw1
+    filters:
+        - delayed_on: 5ms
+        - invert: 
+    on_click:
+      min_length: 50ms
+      max_length: 350ms
+      then:
+        - if:
+            condition:
+              - light.is_off:
+                  id: eink_led
+            then:
+              - light.turn_on:
+                  id: eink_led
+                  brightness: 80%
+            else:
+              - light.turn_off: eink_led
+              
+
+mqtt:
+  broker: 127.0.0.1
+
+text_sensor:
+  - platform: mqtt_subscribe
+    name: "Data from hsy-topic"
+    id: hsypy_plastic
+    topic: hsypy/Muovi
+  - platform: mqtt_subscribe
+    name: "Data from hsy-topic"
+    id: hsypy_mixed
+    topic: hsypy/Sekajäte
+
+output:
+  - platform: ledc
+    pin: GPIO19
+    id: gpio_19
+
+light:
+  - platform: monochromatic
+    output: gpio_19
+    name: "eink_led"
+    id: eink_led    
+
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+
+font:
+  - file: 'Hack-Regular.ttf'
+    id: roboto_50
+    size: 50
+
+  - file: 'Hack-Regular.ttf'
+    id: roboto_15
+    size: 15
+
+  - file: 'Hack-Regular.ttf'
+    id: roboto_20
+    size: 20
+
+display:
+  - platform: waveshare_epaper
+    dc_pin: GPIO17
+    cs_pin: GPIO5
+    busy_pin: GPIO4
+    reset_pin: GPIO16
+    rotation: 90°
+    model: 2.13in-ttgo-b73
+    update_interval: 10s
+    id: my_display
+    lambda: |-
+      it.print(it.get_width() / 2, 20, id(roboto_20), TextAlign::CENTER, "COLLECTED IN");
+      it.line(20, 30, it.get_width() - 20, 30);
+      it.line(it.get_width() / 2, 35, it.get_width() / 2, it.get_height() - 5);
+      it.print(it.get_width() / 4, it.get_height() - 20, id(roboto_20), TextAlign::CENTER, "PLASTIC");
+      it.print(3 * it.get_width() / 4, it.get_height() - 20, id(roboto_20), TextAlign::CENTER, "MIXED");
+      //it.printf(it.get_width() / 4, it.get_height() - 60, id(roboto_50), "%f", id(hsypy_plastic).state.c_str());
+      it.printf(it.get_width() / 4, it.get_height() - 60, id(roboto_50), TextAlign::CENTER, "%sd", id(hsypy_plastic).state.c_str());
+      it.printf(3 * it.get_width() / 4, it.get_height() - 60, id(roboto_50), TextAlign::CENTER, "%sd", id(hsypy_mixed).state.c_str());
+
+
